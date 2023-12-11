@@ -1,4 +1,4 @@
-The Controller is the contract the user interacts with to create a loan and further manage the position. It holds all user debt information. External liquidations are also done through it.
+The Controller is the contract the **user interacts with to create a loan and further manage the position**. It holds all user debt information. External liquidations are also done through it.
 
 Each market has its own Controller, created from a blueprint contract, when a new market is successfully added via the `Factory`.
 
@@ -2692,7 +2692,7 @@ The following functions can be used to pre-calculate metrics before creating a l
         ```
 
 
-# **Fees**
+## **Fees**
 There are two kinds of fees:
 1. Borrowing-based fee: interest rate
 2. AMM-based fee: swap fee for trades within the AMM
@@ -2945,7 +2945,7 @@ While the borrowing-based fee is determined by the MonetaryPolicy Contract, the 
         ```
 
 
-# **Monetary Policy**
+## **Monetary Policy**
 MonetaryPolicy determines the interest rate for the market: [MonetaryPolicy Documenatation](../crvUSD/monetarypolicy.md).
 
 ### `monetary_policy`
@@ -3022,7 +3022,7 @@ MonetaryPolicy determines the interest rate for the market: [MonetaryPolicy Docu
 
 
 
-# **Contract Info Methods**
+## **Contract Info Methods**
 
 ### `factory`
 !!! description "`Controller.factory() -> address: view`"
@@ -3497,7 +3497,7 @@ MonetaryPolicy determines the interest rate for the market: [MonetaryPolicy Docu
         90000000000000000
         ```
 
-# **Setting parameters** 
+## **Setting Parameters** 
 
 ### `set_borrowing_discounts`
 !!! description "`Controller.set_borrowing_discounts(loan_discount: uint256, liquidation_discount: uint256)`"

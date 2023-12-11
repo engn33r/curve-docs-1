@@ -14,7 +14,7 @@
 
     Getter for the decimals of the token.
 
-    Returns: decimals (`uint8`) of the token. 
+    Returns: decimals (`uint8`). 
 
     ??? quote "Source code"
 
@@ -38,7 +38,7 @@
 
     ??? quote "Source code"
 
-        ```vyper hl_lines="1"
+        ```vyper
         version: public(constant(String[8])) = "v1.0.0"
         ```
 
@@ -64,24 +64,7 @@
         @external
         def __init__(_name: String[64], _symbol: String[32]):
             name = _name
-            symbol = _symbol
-
-            NAME_HASH = keccak256(_name)
-            CACHED_CHAIN_ID = chain.id
-            salt = block.prevhash
-            CACHED_DOMAIN_SEPARATOR = keccak256(
-                _abi_encode(
-                    EIP712_TYPEHASH,
-                    keccak256(_name),
-                    VERSION_HASH,
-                    chain.id,
-                    self,
-                    block.prevhash,
-                )
-            )
-
-            self.minter = msg.sender
-            log SetMinter(msg.sender)
+            ...
         ```
 
     === "Example"
@@ -107,23 +90,7 @@
         def __init__(_name: String[64], _symbol: String[32]):
             name = _name
             symbol = _symbol
-
-            NAME_HASH = keccak256(_name)
-            CACHED_CHAIN_ID = chain.id
-            salt = block.prevhash
-            CACHED_DOMAIN_SEPARATOR = keccak256(
-                _abi_encode(
-                    EIP712_TYPEHASH,
-                    keccak256(_name),
-                    VERSION_HASH,
-                    chain.id,
-                    self,
-                    block.prevhash,
-                )
-            )
-
-            self.minter = msg.sender
-            log SetMinter(msg.sender)
+            ...
         ```
 
     === "Example"
@@ -140,9 +107,9 @@
 
     Returns: balance (`uint256`).
 
-    | Input      | Type   | Description |
-    | ----------- | -------| ----|
-    | `arg0` |  `address` | address to check balance for |
+    | Input      | Type   | Description               |
+    |------------|--------|---------------------------|
+    | `arg0`     | `address` | Address to check balance for |
 
     ??? quote "Source code"
 
@@ -179,7 +146,7 @@
 
 ## **Mint and Burn**
 
-- crvUSD can only be minted by the `minter` of the contract, which is the Factory itself
+- crvUSD **can only be minted by the `minter` of the contract**, which is the [**Factory**](./factory/overview.md).
 - crvUSD is minted in accordance with the `debt_ceiling`, either when **adding a new market** or when **raising its debt ceiling**. This is accomplished by calling the `set_new_debt_ceiling` function within the FactoryContract.  
 - Burning crvUSD typically occurs when a lower debt ceiling is set, or if a user decides to burn their crvUSD for whatever reason.
 
@@ -223,7 +190,7 @@
 
     ??? quote "Source code"
 
-        ```vyper hl_lines="1 7 20"
+        ```vyper
         event Transfer:
             sender: indexed(address)
             receiver: indexed(address)
@@ -483,7 +450,7 @@
 
     ??? quote "Source code"
 
-        ```vyper hl_lines="2"
+        ```vyper
         allowance: public(HashMap[address, HashMap[address, uint256]])
 
         @external
@@ -540,7 +507,7 @@
 
     ??? quote "Source code"
 
-        ```vyper hl_lines="2"
+        ```vyper
         allowance: public(HashMap[address, HashMap[address, uint256]])
 
         @external
@@ -602,7 +569,7 @@
 
     ??? quote "Source code"
 
-        ```vyper hl_lines="2"
+        ```vyper
         event Approval:
             owner: indexed(address)
             spender: indexed(address)

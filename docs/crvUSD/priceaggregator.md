@@ -5,14 +5,10 @@ The AggregatorStablePrice contract is designed to **aggregate the prices of crvU
     **AggregatorStablePrice** contract is deployed to the Ethereum mainnet at: [0x18672b1b0c623a30089A280Ed9256379fb0E4E62](https://etherscan.io/address/0x18672b1b0c623a30089A280Ed9256379fb0E4E62#code).
     Source code available on [Github](https://github.com/curvefi/curve-stablecoin/blob/master/contracts/price_oracles/AggregateStablePrice2.vy). 
 
-
-
-## **Calculating Prices**
+## **Exponential Moving Average of TVL**
 
 !!!bug
     If the formulas below do not render, please make sure to refresh the site. A solution is being worked on.
-
-### **Exponential Moving Average of TVL**
 
 **`_ema_tvl()`** calculates the Exponential Moving Average (EMA) of the Total Value Locked (TVL) for multiple Curve StableSwap pools. There is a maximum of 20 pairs to consider, and each price pair (pool) must have at least 100k TVL. 
 New pairs can be added via [`add_price_pair`](#add_price_pair).
