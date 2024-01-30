@@ -1236,7 +1236,7 @@ As with all the curve pools, there are two different kinds of fees: **regular sw
 
 Currently, the admin fees of the AMMs are set to 0 to incentivize borrowers, as all the fees are given to liquidity providers who are the borrowers.
 
-If there are admin fees accumulated, they can't be claimed separately. Instead, they can only be claimed by also claiming the interest rate fees. This is done by calling `collect_fee()` on the controller contract
+If there are admin fees accumulated, they can't be claimed separately. Instead, they can only be claimed by also claiming the interest rate fees. This is done by calling `collect_fees()` on the controller contract
 
 
 ### `fee`
